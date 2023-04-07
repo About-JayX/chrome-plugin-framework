@@ -1,0 +1,28 @@
+{
+  "manifest_version": 2,
+  "name": "财务机器人",
+  "description": "财务机器人数据对接",
+  "version": "1.0.0",
+  "icons": {
+    "48": "assets/logo.png",
+    "128": "assets/logo.png"
+  },
+  "background": {
+    "page": "background.html"
+  },
+  "browser_action": {
+    "default_icon": "assets/logo.png",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "css": ["css/popup.css"],
+      "js": ["js/chunk-vendors.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "permissions": [],
+  "web_accessible_resources": ["js/inject.js"],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+}
